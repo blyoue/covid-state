@@ -21,10 +21,8 @@ const Infection = () => {
                     text: 'Infection Trends',
                     subtext: 'Percentage of currently infected patients',
                 },
-                legend: {
-                    top: 0,
-                    right: 0,
-                },
+                legend:
+                    window.innerWidth >= 640 ? { top: 0, right: 0 } : undefined,
                 xAxis: {
                     type: 'time',
                 },
@@ -58,6 +56,7 @@ const Infection = () => {
             window.addEventListener('resize', handleResize);
 
             return () => {
+                window.removeEventListener('resize', handleResize);
                 myChart.dispose();
             };
         }

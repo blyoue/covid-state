@@ -21,10 +21,8 @@ const Outcomes = () => {
                     text: 'Daily New COVID-19 Cases',
                     subtext: 'Tracking the number of new infections per day',
                 },
-                legend: {
-                    top: '5%',
-                    right: '5%',
-                },
+                legend:
+                    window.innerWidth >= 640 ? { top: 0, right: 0 } : undefined,
                 xAxis: {
                     type: 'time',
                 },
@@ -89,6 +87,7 @@ const Outcomes = () => {
             window.addEventListener('resize', handleResize);
 
             return () => {
+                window.removeEventListener('resize', handleResize);
                 myChart.dispose();
             };
         }

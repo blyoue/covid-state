@@ -21,10 +21,8 @@ const Trends = () => {
                     text: 'Recovery Trends',
                     subtext: 'Total Cases vs Total Recovered',
                 },
-                legend: {
-                    top: 0,
-                    right: 0,
-                },
+                legend:
+                    window.innerWidth >= 640 ? { top: 0, right: 0 } : undefined,
                 xAxis: {
                     type: 'time',
                 },
@@ -66,6 +64,7 @@ const Trends = () => {
             };
             window.addEventListener('resize', handleResize);
             return () => {
+                window.removeEventListener('resize', handleResize);
                 myChart.dispose();
             };
         }

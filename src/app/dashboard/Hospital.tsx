@@ -34,10 +34,10 @@ const Hospital = () => {
                 tooltip: {
                     trigger: 'item',
                 },
-                legend: {
-                    bottom: 0,
-                    left: 0,
-                },
+                legend:
+                    window.innerWidth >= 640
+                        ? { bottom: 0, left: 0 }
+                        : undefined,
                 color: ['#1976D2', '#BBDEFB'],
 
                 series: [
@@ -74,6 +74,7 @@ const Hospital = () => {
             window.addEventListener('resize', handleResize);
 
             return () => {
+                window.removeEventListener('resize', handleResize);
                 myChart.dispose();
             };
         }

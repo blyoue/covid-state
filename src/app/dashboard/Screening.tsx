@@ -69,6 +69,7 @@ const Screening = () => {
             window.addEventListener('resize', handleResize);
 
             return () => {
+                window.removeEventListener('resize', handleResize);
                 myChart.dispose();
             };
         }
