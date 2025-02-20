@@ -1,5 +1,10 @@
 import Dashboard from './dashboard/page';
 
 export default function Home() {
-    return <Dashboard />;
+    return (
+        <>
+            <Dashboard />
+            <p>Hello World</p>
+        </>
+    );
 }
